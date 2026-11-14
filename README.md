@@ -1,59 +1,59 @@
-# MonPremierProjet
+Angular TaskFlow
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.30.
+Application développée avec Angular dans le cadre de mon apprentissage du framework Angular.
 
-## Development server
+L'objectif de ce projet est de pratiquer les concepts fondamentaux d'Angular à travers la création et la gestion d'une liste de tâches.
 
-To start a local development server, run:
+Technologies utilisées
 
-```bash
-ng serve
-```
+Angular 21
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+TypeScript
 
-## Code scaffolding
+HTML5
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+CSS3
 
-```bash
-ng generate component component-name
-```
+Node.js
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+npm
 
-```bash
-ng generate --help
-```
+Fonctionnalités réalisées
 
-## Building
+1. Components
 
-To build the project run:
+Création et organisation des composants Angular.
 
-```bash
-ng build
-```
+Séparation de la logique TypeScript et de l'interface HTML.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Data Binding
 
-## Running unit tests
+Interpolation {{ }} pour afficher les données.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Event Binding (click) pour gérer les événements.
 
-```bash
-ng test
-```
+Property Binding [disabled] pour contrôler les propriétés HTML.
 
-## Running end-to-end tests
+3. Control Flow
 
-For end-to-end (e2e) testing, run:
+@for pour parcourir et afficher une liste de tâches.
 
-```bash
-ng e2e
-```
+@if pour vérifier la présence de données.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+@else pour afficher un message alternatif lorsque la liste est vide.
 
-## Additional Resources
+4. Pipes
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+DatePipe pour formater les dates.
+
+TitleCasePipe pour mettre les premières lettres des mots en majuscules.
+
+5. Gestion des tâches
+
+Chaque tâche possède les propriétés suivantes :
+
+id : identifiant de la tâche.
+
+title : titre de la tâche.
+
+dueDate : date limite de la tâche.
