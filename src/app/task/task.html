@@ -1,0 +1,27 @@
+<h2>Ma liste de tâches</h2>
+
+@if (tasks.length > 0) {
+
+  <ul>
+    @for (task of tasks; track task.id) {
+
+      <li>
+        ID : {{ task.id }}
+
+        | Tâche : {{ task.title | titlecase }}
+
+        | Date limite : {{ task.dueDate | date:'dd-----MM///yyyy' }}
+      </li>
+
+    }
+  </ul>
+
+  <button (click)="clearTasks()">
+    Vider la liste
+  </button>
+
+} @else {
+
+  <p>Aucune tâche disponible.</p>
+
+}
