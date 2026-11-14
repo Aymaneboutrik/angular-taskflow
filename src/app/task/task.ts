@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DatePipe, TitleCasePipe } from '@angular/common';
+import { TitleColorPipe } from './title-color-pipe';
 
 interface TaskItem {
   id: number;
@@ -9,7 +10,7 @@ interface TaskItem {
 
 @Component({
   selector: 'app-task',
-  imports: [DatePipe, TitleCasePipe],
+  imports: [DatePipe, TitleCasePipe, TitleColorPipe],
   templateUrl: './task.html',
   styleUrl: './task.css'
 })
@@ -29,7 +30,7 @@ export class Task {
     },
     {
       id: 3,
-      title: 'pratiquer typescript',
+      title: 'lire',
       dueDate: '2026-11-25'
     }
   ];

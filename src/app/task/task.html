@@ -8,9 +8,16 @@
       <li>
         ID : {{ task.id }}
 
-        | Tâche : {{ task.title | titlecase }}
+        | Tâche :
 
-        | Date limite : {{ task.dueDate | date:'dd-----MM///yyyy' }}
+        <span [style.color]="task.title | titleColor">
+          {{ task.title | titlecase }}
+        </span>
+
+        | Date limite :
+
+        {{ task.dueDate | date:'dd/MM/yyyy' }}
+
       </li>
 
     }
