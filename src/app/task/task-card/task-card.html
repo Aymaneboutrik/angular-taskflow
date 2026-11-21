@@ -1,0 +1,25 @@
+<div class="task-card">
+
+  <p>
+    <strong>ID :</strong>
+    {{ task().id }}
+  </p>
+
+  <p>
+    <strong>Tâche :</strong>
+
+    <span [style.color]="task().title | titleColor">
+      {{ task().title | titlecase }}
+    </span>
+  </p>
+
+  <p>
+    <strong>Date limite :</strong>
+    {{ task().dueDate | date:'dd/MM/yyyy' }}
+  </p>
+
+  <button (click)="markDone()">
+    Terminer
+  </button>
+
+</div>

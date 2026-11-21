@@ -1,31 +1,27 @@
 <h2>Ma liste de tâches</h2>
 
-@if (tasks.length > 0) {
+<h3>Nombre de tâches : {{ count() }}</h3>
 
-  <ul>
-    @for (task of tasks; track task.id) {
+<button (click)="addTask()">
+  Ajouter une tâche
+</button>
 
-      <li>
-        ID : {{ task.id }}
+<button (click)="clearTasks()">
+  Vider la liste
+</button>
 
-        | Tâche :
+<hr>
 
-        <span [style.color]="task.title | titleColor">
-          {{ task.title | titlecase }}
-        </span>
+@if (tasks().length > 0) {
 
-        | Date limite :
+  @for (task of tasks(); track task.id) {
 
-        {{ task.dueDate | date:'dd/MM/yyyy' }}
+    <app-task-card
+      [task]="task"
+      (completed)="onCompleted($event)"
+    />
 
-      </li>
-
-    }
-  </ul>
-
-  <button (click)="clearTasks()">
-    Vider la liste
-  </button>
+  }
 
 } @else {
 

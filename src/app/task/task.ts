@@ -1,23 +1,18 @@
-import { Component } from '@angular/core';
-import { DatePipe, TitleCasePipe } from '@angular/common';
-import { TitleColorPipe } from './title-color-pipe';
-
-interface TaskItem {
-  id: number;
-  title: string;
-  dueDate: string;
-}
+import { Component, signal, computed } from '@angular/core';
+import { TaskCard } from './task-card/task-card';
+import { TaskItem } from './task-item';
 
 @Component({
   selector: 'app-task',
-  imports: [DatePipe, TitleCasePipe, TitleColorPipe],
+  imports: [TaskCard],
   templateUrl: './task.html',
   styleUrl: './task.css'
 })
 
 export class Task {
 
-  tasks: TaskItem[] = [
+  // Signal contenant la liste des tâches
+  tasks = signal<TaskItem[]>([
     {
       id: 1,
       title: 'apprendre angular',
@@ -33,10 +28,36 @@ export class Task {
       title: 'lire',
       dueDate: '2026-11-25'
     }
-  ];
+  ]);
 
+  // Compteur automatique
+  count = computed(() => this.tasks().length);
+
+  // Ajouter une tâche
+  addTask() {
+
+    const newTask: TaskItem = {
+      id: Date.now(),
+      title: 'nouvelle tâche',
+      dueDate: '2026-11-30'
+    };
+
+    this.tasks.update(items => [...items, newTask]);
+
+  }
+
+  // Vider la liste
   clearTasks() {
-    this.tasks = [];
+    this.tasks.set([]);
+  }
+
+  // Recevoir l'événement du composant enfant
+  onCompleted(taskId: number) {
+
+    this.tasks.update(items =>
+      items.filter(task => task.id !== taskId)
+    );
+
   }
 
 }
